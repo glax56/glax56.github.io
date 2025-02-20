@@ -1119,14 +1119,25 @@ input, select, textarea {
 			max-height: 69vh; /* Adjusts the max height to be a percentage of the viewport height */
 		}
 		
-	@media (max-width: 768px) {
-		.bout_me {
-				margin-top: 25%; /* Reduced to bring content higher up */
-				margin-bottom: 0; /* Gives space at the bottom */
-				max-height: 69vh; /* Sets maximum height to 50% of the viewport height */
-				height: auto; /* Allows the content to grow in height */
+		/* Mobile Adjustments */
+		@media (max-width: 768px) {
+			.bout_me {
+				margin-top: 20%; /* Adjusts spacing to push content up */
+				margin-bottom: 5%; /* Adds a little bottom margin */
+				width: 95%; /* Uses more screen space */
+				max-width: none; /* Ensures flexibility */
+				height: auto; /* Removes fixed height and adjusts based on content */
+				background: rgba(111, 143, 175, 0.9); /* Semi-transparent background */
+				border-radius: 10px; /* Rounds the corners */
+				visibility: visible; /* Ensures content is visible */
+				padding: 3%; /* Balanced padding */
+				margin: 10% auto; /* Centers the element */
+				font-size: 1.2em;
+				width: 90%; /* Ensures content adapts properly */
+				max-width: 800px; /* Prevents it from getting too wide */
 			}
-		}		
+		}
+		
 	
 	.profile-image {
 			position:fixed; /* or 'fixed' if you want it to stay in the same place on screen scroll */
@@ -1140,56 +1151,6 @@ input, select, textarea {
 		.profile-image{
 			display: none;
 		}
-	}	
-
-	/* Navigation Bar Style Enhancements */
-	#navbar {
-		position: fixed; /* Fixes the navbar at the top of the screen */
-		top: 5%; /* Aligns the navbar to the top */
-		width: 100%; /* Ensures the navbar spans the full width of the screen */
-		z-index: 1000; /* Ensures the navbar stays on top of other elements */
-	}
-	
-	/* Add some padding-top to the body to prevent content from being hidden behind the fixed navbar */
-	body {
-		padding-top: 0px; /* Adjust the value based on the height of your navbar */
-	}
-	
-	#navbar nav ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		text-align: center; /* Center align the navigation items */
-	}
-
-	#navbar nav ul li {
-		display: inline-block; /* Display items in a row */
-		margin-right: 5px; /* Adjust space between items as needed */
-	}
-
-	#navbar nav ul li a {
-		font-size: 1.9em; /* Adjust font size for clarity if needed */
-		color: #ffffff; /* Adjust color for better visibility, choose what fits your design */
-		padding: 10px 10px; /* Adjust padding to create a square appearance */
-		background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for contrast */
-		border-radius: 0%; /* Smaller value for less rounded corners */
-		text-decoration: none; /* Remove underline from links */
-		display:inherit; /* Ensure the anchor behaves like a block for width and height */
-		width: 100%; /* Set a fixed width for square shape - adjust as needed */
-		height: 100%; /* Set a fixed height for square shape - adjust as needed */
-		line-height: 100%; /* Adjust line height to vertically center the text */
-		text-align: center; /* Horizontally center the text */
-	}
-
-	#navbar nav ul li a:hover {
-		background: rgba(0, 0, 0, 1); /* Darken background on hover for a nice effect */
-	}
-
-	/* Add responsive design */
-	@media (max-width: 1200px), (max-height: 736px) {
-		#navbar {
-			top:0%;
-		}
 	}
 
 	#middlename {
@@ -1197,24 +1158,36 @@ input, select, textarea {
 		width: 10%; /* Maximum width of the image */
 	  }
 
-	#projectcontents {
+	  #projectcontents {
 		overflow-y: auto; /* Allows vertical scrolling */
-		display:grid;
-		border-radius: 30px; /* Rounds the corners of the box */
+		display: grid;
+		border-radius: 30px; /* Rounds the corners */
 		visibility: visible; /* Ensures content is visible */
-		grid-template-columns: repeat(auto-fill, minmax(34%, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(34%, 1fr)); /* Responsive grid */
 		grid-gap: 1%;
-		padding: 1%;
-		margin-top: 15%;
-		margin-left: 1%;
-		margin-right: 1%;
-		margin-bottom: 5%; /* Responsive bottom margin */
-		max-height: 69vh; /* Adjusts the max height to be a percentage of the viewport height */
-		box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Shadow effect to create a bounding box */
-		border-radius: 8px; /* Optional: rounds the corners of the grid container */
+		padding: 2%;
+		margin-top: 15%; /* Keeps the initial spacing */
+		margin-left: 2%;
+		margin-right: 2%;
+		margin-bottom: 2%; /* Brings section closer to bottom */
+		max-height: 69vh; /* Maintains scrollable area */
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
 		background-color: rgba(255, 255, 255, 1);
-	  }
-	  
+	}
+	
+	/* Mobile Adjustments */
+	@media (max-width: 768px) {
+		#projectcontents {
+			margin-top: 30%; /* Reduces space above to push content down */
+			margin-bottom: 2%; /* Adds more spacing at the bottom */
+			padding: 3%;
+			max-height: 75vh; /* Keeps the scrollable behavior */
+		}
+	}
+
+	
+
+
 	.project-card {
 		align-items: center; /* Center items horizontally */
 		justify-content: space-between; /* Evenly space out the items */
@@ -1315,38 +1288,123 @@ input, select, textarea {
 		}
 	}
 
-	/* Style for filter bar */
-	#filter-bar {
-		position: fixed; /* Fixes the navbar at the top of the screen */
-		top: 14%; /* Aligns the navbar to the top */
-		width: 100%; /* Ensures the navbar spans the full width of the screen */
-		z-index: 1000; /* Ensures the navbar stays on top of other elements */
-		margin-left:-21%;
-	}
 	
-	@media (max-width: 1200px), (max-height: 736px) {
-		#filter-bar{
-			position: fixed;
-			margin-left:0%;
-		}
-	}	
+/* Navigation Bar Enhancements */
+#navbar {
+    position: fixed;
+    top: 2%; /* Moves navbar closer to the top */
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0; /* Reduced padding to make it more compact */
+}
 
-	/* Style for filter buttons */
-	.filter-button {
-		padding: .5% 1%;
-		margin: 5px;
-		border: none;
-		background-color: #333;
-		color: white;
-		cursor: pointer;
-	}
-	
-	.filter-button:hover {
-		background-color: #ddd;
-		color:#333;
-	}
-	
-	/* Selected button class */
-	.filter-button.active {
-		background-color: black;
-	}
+/* Add padding to body to prevent overlap */
+body {
+    padding-top: 60px; /* Adjusted to match new navbar height */
+}
+
+/* Default Desktop Navigation */
+#navbar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px; /* Slightly reduced gap for a more compact look */
+}
+
+/* Navbar items */
+#navbar nav ul li {
+    display: inline-block;
+}
+
+/* Navbar links */
+#navbar nav ul li a {
+    font-size: 1.3em; /* Slightly smaller for a sleeker look */
+    color: #ffffff;
+    padding: 10px 20px; /* Adjusted padding for better spacing */
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    background: rgba(0, 0, 0, 0.75); /* Semi-transparent fill */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Subtle border */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect */
+#navbar nav ul li a:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Softer glow */
+    transform: translateY(-3px);
+}
+
+/* Filter Bar - Now Fits All Buttons */
+#filter-bar {
+    position: fixed; /* Keeps it at the top */
+    top: 10%; /* Moves it below the navbar */
+    left: 50%; /* Centers it */
+    transform: translateX(-50%); /* Ensures perfect centering */
+    z-index: 1000; /* Keeps it above other elements */
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Prevents buttons from wrapping */
+    gap: 8px; /* Space between buttons */
+    padding: 10px 15px;
+    border-radius: 10px; /* Adds smooth rounded corners */
+    background: rgba(255, 255, 255, 0.35); /* Matches navbar transparency */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Adds a subtle border */
+    overflow-x: auto; /* Allows scrolling if necessary */
+    white-space: nowrap; /* Ensures all buttons remain in a single line */
+    max-width: 95%; /* Ensures it doesn't extend too far on large screens */
+}
+
+/* Filter Buttons */
+.filter-button {
+    padding: 10px 15px; /* Adjusted for uniformity */
+    margin: 0;
+    border: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px; /* Smooth button edges */
+    transition: all 0.3s ease-in-out;
+    font-size: 1em; /* Consistent text size */
+    white-space: nowrap; /* Prevents text from wrapping */
+    flex: 1; /* Ensures all buttons distribute evenly */
+    min-width: 120px; /* Prevents buttons from becoming too small */
+    text-align: center;
+}
+
+/* Hover Effect */
+.filter-button:hover {
+    background-color: #949494;
+    color: black;
+}
+
+/* Active Button */
+.filter-button.active {
+    background-color: black;
+    color: white;
+}
+
+/* Responsive Fixes */
+@media (max-width: 1200px), (max-height: 736px) {
+    #filter-bar {
+        top: 8%; /* Moves it slightly higher for better positioning */
+        padding: 8px 10px;
+        max-width: 90%; /* Prevents buttons from being cut off */
+        overflow-x: auto; /* Allows horizontal scrolling if necessary */
+    }
+}
+
+@media (max-width: 768px) {
+    #filter-bar {
+        display: none; /* Hides filter bar on mobile */
+    }
+}
+
+

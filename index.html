@@ -33,6 +33,36 @@
                         <h1>Garrison Winter</h1>
                         <p>Business Analytics Manager &bull; Avid Pickleballer &bull; Hungry Dog Runs Faster</p>
                         <img src="assets/Pictures/BusinessImage.png" alt="Garrison Winter" class="profile-image">
+                        <style>
+                            /* Ensure navbar is centered and items stay in one line */
+                            nav ul {
+                                list-style: none;
+                                padding: 0;
+                                margin: 0;
+                                display: flex;
+                                gap: 15px; /* Adjust spacing between icons */
+                                justify-content: center;
+                                align-items: center;
+                                white-space: nowrap; /* Prevent text from wrapping */
+                            }
+                        
+                            /* Default icon size for larger screens */
+                            .icon {
+                                font-size: 1em;
+                            }
+                        
+                            /* Make icons smaller on mobile devices */
+                            @media (max-width: 768px) {
+                                .icon {
+                                    font-size: .9em; /* Smaller icons on small screens */
+                                }
+                        
+                                nav ul {
+                                    gap: 10px; /* Reduce space between icons on mobile */
+                                }
+                            }
+                        </style>
+                        
                         <nav>
                             <ul>
                                 <li><a href="/assets/Resume | References//Winter Resume.pdf" class="icon far fa-file-alt"></a></li>
@@ -41,7 +71,7 @@
                                 <li><a href="https://github.com/glax56" class="icon brands fa-github"></a></li>
                                 <li><a href="mailto:garrisonwinter56@gmail.com" class="icon far fa-envelope"></a></li>
                             </ul>                      
-                        </nav>
+                        </nav>                                     
                     </div>
                 </section>
 			</header>

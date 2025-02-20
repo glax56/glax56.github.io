@@ -22,28 +22,21 @@
                         <li><a href="mailto:garrisonwinter56@gmail.com">Contact</a></li>
                     </ul>
                 </nav>
+                
                 <!-- Filter Bar -->
                 <div id="filter-bar">
-                    <button class="filter-button" onclick="filterSelection('all')">Show All</button>
-                    <button class="filter-button" onclick="filterSelection('FullStack')">Full Stack</button>
-                    <button class="filter-button" onclick="filterSelection('Databases')">Databases</button>
-                    <button class="filter-button" onclick="filterSelection('Analysis')">Analysis</button>
-                    <button class="filter-button" onclick="filterSelection('Forecasting')">Forecasting</button>
-                    <button class="filter-button" onclick="filterSelection('NLP')">NLP</button>
-                    <button class="filter-button" onclick="filterSelection('Clustering')">Clustering</button>
+                    <button class="filter-button" onclick="filterSelection('all', this)">Show All</button>
+                    <button class="filter-button" onclick="filterSelection('FullStack', this)">Full Stack</button>
+                    <button class="filter-button" onclick="filterSelection('Databases', this)">Databases</button>
+                    <button class="filter-button" onclick="filterSelection('Analysis', this)">Analysis</button>
+                    <button class="filter-button" onclick="filterSelection('Forecasting', this)">Forecasting</button>
+                    <button class="filter-button" onclick="filterSelection('NLP', this)">NLP</button>
+                    <button class="filter-button" onclick="filterSelection('Clustering', this)">Clustering</button>
                 </div>
             </section>
             <!-- Header -->
             <header id="header">
                 <section id="projectcontents">
-                <head>
-                    <title>Projects - Winter Portfolio</title>
-                    <meta charset="utf-8" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-                    <link rel="stylesheet" href="assets/css/main.css" />
-                </head>
-                <body>
-
                     <!-- Full Stack PRJ -->
                     <div class="project-card" data-tag="FullStack Databases">
                         <div class="project-top">
@@ -98,7 +91,7 @@
                     <!-- Human Trafficking Project -->
                     <div class="project-card" data-tag="Analysis Clustering Forecasting">
                         <div class="project-top">
-                            <img src="/assets/Pictures/youtube.jpg" alt="Project Image" class="project-image">
+                            <img src="/assets/Pictures/htraffic.jpeg" alt="Project Image" class="project-image">
                             <div class="project-info">
                                 <h3 class="project-title">Human Trafficking</h3>
                                 <details class="tag">
@@ -122,62 +115,64 @@
                             <a href="assets/Pictures/team102poster.pdf" class="github-link">Journal Poster</a>
                         </div>
                     </div>
-                </body>
                 </section>
-			</header>
+            </header>
 
             <!-- Footer -->
             <footer id="footer">
                 <p class="copyright">
-                    <!-- &copy;Garrison Winter Design: <a href="http://html5up.net">HTML5 UP</a>. -->
                     Connect via: 
                     <a href="/assets/Resume | References//Winter Resume.pdf" class="links"> Resume</a>
                     <span>|</span>
-					<a href="/assets/Resume | References//References2.pdf" class="links"> References</a> 
+                    <a href="/assets/Resume | References//References2.pdf" class="links"> References</a> 
                     <span>|</span>
-                    <a href="https://www.linkedin.com/in/yourprofile" class="links"> LinkedIn</a> 
+                    <a href="https://www.linkedin.com/in/garrisonwinter56/" class="links"> LinkedIn</a> 
                     <span>|</span>
-                    <a href="https://github.com/yourusername" class="links"> GitHub</a>
+                    <a href="https://github.com/glax56" class="links"> GitHub</a>
                     <span>|</span>
                     <a href="mailto:garrisonwinter56@gmail.com" class="links"> Email</a>
                 </p>
             </footer>
 
     <script>
-        function filterSelection(tag) {
+        function filterSelection(tag, btnElem) {
                 var x, i;
                 x = document.getElementsByClassName("project-card");
                 
                 // Lowercase the filter tag for case-insensitive comparison
                 var filterTag = tag.toLowerCase();
                 
-                // Add the "active" class to the current button (highlight it)
+                // Remove the "active" class from all buttons
                 var btns = document.getElementsByClassName("filter-button");
                 for (i = 0; i < btns.length; i++) {
                     btns[i].className = btns[i].className.replace(" active", "");
                 }
-                event.currentTarget.className += " active";
+                // Add the "active" class to the clicked button if provided
+                if(btnElem) {
+                    btnElem.className += " active";
+                }
                 
+                // Filter the projects
                 for (i = 0; i < x.length; i++) {
-                    // Retrieve the element's data-tag attribute and convert it to lowercase
                     var dataTags = x[i].getAttribute('data-tag').toLowerCase();
-                    // Split the dataTags string into an array of individual tags
                     var tagList = dataTags.split(" ");
                     
-                    // If the filterTag is 'all' or the element's tagList includes the filterTag, show the element
                     if (filterTag === 'all' || tagList.includes(filterTag)) {
-                    x[i].style.display = "block";
+                        x[i].style.display = "block";
                     } else {
-                    x[i].style.display = "none";
+                        x[i].style.display = "none";
                     }
                 }
             }
 
-        // Initially display all projects
-        window.onload = function() {filterSelection('all'); }
-        window.onload = function() { document.body.classList.remove('is-preload'); }
-        window.ontouchmove = function() { return false; }
-        window.onorientationchange = function() { document.body.scrollTop = 0; }
+        // Use a single load event to run both functions
+        window.addEventListener("load", function() {
+            filterSelection('all');
+            document.body.classList.remove('is-preload');
+        });
+
+        window.ontouchmove = function() { return false; };
+        window.onorientationchange = function() { document.body.scrollTop = 0; };
     </script>
 </body>
 </html>
